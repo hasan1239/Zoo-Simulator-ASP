@@ -1,0 +1,72 @@
+﻿@model Simulator
+
+<style>
+    a {
+        background-color: black;
+        color: white;
+        padding: 1em 1.5em;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        background-color: #555;
+        cursor: pointer;
+    }
+</style>
+
+<table width="100%">
+    <tr>
+        <td>
+            <h2>@Model.HoursElapsedString</h2>
+        </td>
+
+        <td>
+            @if (!Model.IsSimRunning)
+            {
+                <h2 style="color: red">All animals are dead</h2>
+            }
+        </td>
+
+        <td>
+            <a asp-controller="Zoo" asp-action="FeedAnimals">Feed</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="td">
+            <h3 style="text-align:center">Elephants</h3>
+            <table>
+                @foreach (var elephant in Model.Zoo.Elephants)
+                {
+                    <tr>
+                        <partial name="_Animal" model="elephant" />
+                    </tr>
+                }
+            </table>
+        </td>
+
+        <td class="td">
+            <h3 style="text-align:center">Giraffes</h3>
+            <table>
+                @foreach (var giraffe in Model.Zoo.Giraffes)
+                {
+                    <tr>
+                        <partial name="_Animal" model="giraffe" />
+                    </tr>
+                }
+            </table>
+        </td>
+
+        <td class="td">
+            <h3 style="text-align:center">Monkeys</h3>
+            <table>
+                @foreach (var monkey in Model.Zoo.Monkeys)
+                {
+                    <tr>
+                        <partial name="_Animal" model="monkey" />
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>

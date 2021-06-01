@@ -1,0 +1,16 @@
+﻿.td {
+    border: 1px solid black;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+    width: 60%;
+    padding: 50px;
+}
+
+.bar {
+    height: 50px;
+    width: 200px;
+    margin-left: 10px;
+}

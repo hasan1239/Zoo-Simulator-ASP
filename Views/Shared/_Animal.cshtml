@@ -1,0 +1,46 @@
+﻿@model Animal 
+
+<link rel="stylesheet" href="~/Content/site.css" />
+
+<style>
+    .container {
+        position: relative;
+        text-align: center;
+        color: black;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<td>
+    @if (Model is Giraffe)
+    {
+        <img src="~/Images/giraffe.png" height="50" />
+    }
+    else if (Model is Elephant)
+    {
+        <img src="~/Images/elephant.png" height="50" />
+    }
+    else if (Model is Monkey)
+    {
+        <img src="~/Images/monkey.png" height="50"/>
+    }
+</td>
+<td>
+    @if (Model.IsAlive == true)
+    {
+        <div class="container">
+            <progress class="bar" value="@Model.Health" max="100"></progress>
+            <div class="centered"><p>@Model.Health%</p></div>
+        </div>
+    }
+    else
+    {
+        <p style="color: red; margin-left: 20px">Dead</p>
+    }
+</td>
